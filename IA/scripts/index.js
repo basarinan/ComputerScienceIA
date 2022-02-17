@@ -336,7 +336,7 @@ document.getElementById("USsubmit-button").addEventListener("click", (e) => {
             collegename = key
             collegesat = college[key]["SAT"]
             collegegpa = college[key]["GPA"]
-            collegeact = college[key]["ACT"]
+            
             collegeUSfunction()
         }
         for (let j = 0; j < clglist.length; j = j + 1) {
@@ -352,7 +352,40 @@ document.getElementById("USsubmit-button").addEventListener("click", (e) => {
     })
 });
 
-    //Everything related to UK colleges
+ 
+//Everything related to UK colleges
+var color1 = ""
+var cuk_display = document.getElementById("ukcollege-display")
+var uk_display = document.getElementById("ukCollege")
+
+function createCardsUK (a) {
+    for (let i = 0; i < a.length; i = i + 1) {
+        color1 = ""
+        college_UKname = a[i]["UKcollegename"]
+        IBdifference = a[i]["difference"]
+        if (IBdifference <2 && IBdifference>-2){
+            color1 = "green"
+        } else if (IBdifference<-3){
+            color1 = "red"
+        } else if (IBdifference >3){
+            color1 = "blue"
+        }
+        var currentCard = Createcard(college_UKname, color1)
+        var newVariable = newVariable + currentCard
+
+    }
+    uk_display.innerHTML = newVariable
+}
+
+
+
+
+
+
+
+
+
+    
 
     hlfit= []
     hlunfit=[]
@@ -360,10 +393,13 @@ document.getElementById("USsubmit-button").addEventListener("click", (e) => {
     function HL(a,b){
 
         for (i = 0; i< a.length; i = i+1){
-            console.log(b[i])
+            difference = ibscores - collegeIB
+            
             
             if (Number(a[i]) < Number(b[i])){
-              dict2 = {"UKcollegename":UKcollegename, "HLscores":b, "IBscores":collegeIB}
+              
+              
+              dict2 = {"UKcollegename":UKcollegename, "HLscores":b, "IBscores":collegeIB, "difference": difference}
               hlunfit.push(dict2)
               return hlunfit
               
@@ -371,10 +407,10 @@ document.getElementById("USsubmit-button").addEventListener("click", (e) => {
                 
 
             }
-          }
-      dict3= {"UKcollegename":UKcollegename, "HLscores": b, "IBscores": collegeIB}
-      hlfit.push(dict3)
-      return hlfit
+        }
+        dict3= {"UKcollegename":UKcollegename, "HLscores": b, "IBscores": collegeIB, "difference": difference}
+        hlfit.push(dict3)
+        return hlfit
     }
 
     
@@ -387,11 +423,11 @@ document.getElementById("USsubmit-button").addEventListener("click", (e) => {
 
           
           
-          if (Math.abs(Number(a[i]["IBscores"])-b) > Math.abs(Number(a[i+1]["IBscores"])-b)){
+            if (Math.abs(Number(a[i]["IBscores"])-b) > Math.abs(Number(a[i+1]["IBscores"])-b)){
 
-              temp = a[i]
-              a[i] = a[i+1]
-              a[i+1] = temp
+                temp = a[i]
+                a[i] = a[i+1]
+                a[i+1] = temp
 
 
             }
@@ -400,6 +436,8 @@ document.getElementById("USsubmit-button").addEventListener("click", (e) => {
           }
         }
   // College UK 
+
+
 const uksubmitbtn = document.getElementById("uksubmit-button")
 
 uksubmitbtn.addEventListener("click", (e) => {
@@ -420,24 +458,26 @@ uksubmitbtn.addEventListener("click", (e) => {
         }
         sort(hlfit,ibscores)
         sort(hlunfit,ibscores)
-        // console.log(hlunfit.length)
-        
+
         for (i=0; i<hlunfit.length; i+=1){
 
             hlfit.push(hlunfit[i])
-        }
+         }
 
-        var ukcollegerankings = ""
+        createCardsUK(hlfit)
+        // console.log(hlunfit.length)
+        
+        
 
-        for (i=0; i<hlfit.length; i+=1){
+        // for (i=0; i<hlfit.length; i+=1){
 
-            ukcollegerankings += i+1 + "." + hlfit[i]["UKcollegename"] + "\n"
+        //     ukcollegerankings += i+1 + "." + hlfit[i]["UKcollegename"] + "\n"
 
-        }
+        // }
 
-        document.getElementById("ukcollegeranked").innerHTML = ukcollegerankings
-        hlfit = []
-        hlunfit = []
+        // document.getElementById("ukcollegeranked").innerHTML = ukcollegerankings
+        // // hlfit = []
+        // hlunfit = []
       
 
 
