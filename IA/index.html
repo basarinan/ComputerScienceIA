@@ -1,313 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Finder</title>
+    <head>
+        <!-- Characters that the webpage is going to use -->
+        <meta charset="UTF-8">
+        <!-- Line 6 and 7: Responsive design of the webpage -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=, initial-scale=1.0">
+        <!-- Title of the webpage -->
+        <title>Login Page</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
 
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-
-</head>
 <body>
-    <!-- Navbar -->
-    <div id = "navbar">
-        <nav>
-          <div class="nav-wrapper red">
-            <a href="#" class="brand-logo center">College Finder</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-              <li><a id = "loginbutton" class = "modal-trigger login-content" href="#modal1">Login</a></li>
-              <li><a id = "SignUpbutton" class = "modal-trigger login-content" href="#modal2">Sign Up</a></li>
-              <li><a id = "apvsib" class = "btn-flat" style = "display: none">APvsIB</a></li>
-              <li><a id = "collegefinder" class = "btn-flat" style = "display: none">College Finder</a></li>
-              <li><a id = "logout-button" class = "btn-flat" style = "display: none">Logout</a></li>
-              
-              
+    <!-- Start of the navbar -->
+    <nav class="red">
+        <!-- Color of the navigation bar -->
+        <div class="nav-wrapper container">
+            <!-- Title of the webpage in the navbar -->
+            <a href="#" class="brand-logo left">College Finder</a>
+            <!-- Start of the options in the navigation bar -->
+            <ul class="right hide-on-med-and-down" id="nav-mobile">
+                <!-- Before login links -->
+                <li><a href="#modal1" class=" modal-trigger login-content" style="display: block;"><span class="white-text">Login</span></a></li>
+                <li><a href="#modal2" class=" modal-trigger login-content" style="display: block;"><span class="white-text">Sign Up</span></a></li>
+                <!-- After login links -->
+                <li><a href="#" id="logout-button" style="display: none;"><span class="white-text">Logout</span></a></li>
+                <li><a href="#dropdown1" class="dropdown-trigger" id="collegefinder_button" style="display: none;"><span class="white-text">College Finder</span></a></li>
+                <li><a href="#" id="apvsib_button" style="display: none;"><span class="white-text">AP or IB</span></a></li>
             </ul>
-          </div>
-        </nav>
         </div>
+    </nav>
+    <!-- End of the navigation bar -->
 
-      <!-- Login Modal -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-        <h4>Login</h4>
-        <label for="username">Username</label>
-        <input type="email" name="username" id="username">
-        <label for="password">Password</label>          
-        <input type="password" name="password" id="password">
+    <!-- Dropdown in the navbar after login -->
+    <ul class="dropdown-content" id="dropdown1">
+        <li><a href="#" id="UK">United Kingdom</a></li>
+        <li><a href="#" id="US">United States</a></li>
+    </ul>
+    <!-- End of the dropdown code after login -->
 
+    <!-- Login Page -->
+    <div class="container" id="login-page">
+        <h3 class="center">Welcome to our website!</h3>
+        <hr>
+        <p>This website is designed to aid you as you navigate your post-secondary decision making process.</p>
+        <p>The college finder tool will help you get an idea what schools to apply to.</p>
+        <p>The AP vs IB page is designed for Y10 students who have yet to decide which program would be more suitable for them.</p>
+        <hr>
+        <img src="images/Harvard.jpeg" alt="Harvard" style="width: 100%;">
     </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="loginButton">Log In</a>
-    </div>
-</div>
-
-
-    <!-- Sign Up Modal-->
-    <div id ="modal2" class = "modal">
-
-      <div class = "modal-content">
-
-        <h4>Sign Up</h4>
-
-       
-        <label for="newuser">Create a Username</label>
-        <input type="email" name="newuser" id="newuser">
-        <label for="confirmuser">Confirm Username</label>
-        <input type="email" name="confirmuser" id="confirmuser">
-        <label for="newpass">Create a Password</label>
-        <input type="password" name="newpass" id="newpass">
-        <label for="confirmpass">Confirm Password</label>
-        <input type="password" name="confirmpass" id="confirmpass">
-
-      </div>
-
-      <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="SignUpButton">Sign Up</a>
-    </div>
-    
-    </div>
-
-    <!-- Quiz Page -->
-    <div id ="quiz-page" style = "display: none"> 
-    
-    <h2 class = "center">AP or IB</h2>
-
-
-    <h5>In order to estimate whether you are more suitable for AP or IB, we first need to know you as a student, please respond to the following questions.</h5>
-
-     
-    
-      <label><h4>Do you know what to do in college?</h4></label>
-    <select id = "college" class="browser-default">
-      <option>Choose an Option</option>
-      <option value="1">Yes I know what to study in college</option>
-      <option value="2">I know what field to go into</option>
-      <option value="3">I am still exploring my interests</option>
-    </select>
-  
-    <label><h4>Do you prefer taking tests or doing projects?</h4></label>
-    <select id ="tvp" class="browser-default">
-      <option>Choose an Option</option>
-      <option value="1">I prefer projects</option>
-      <option value="2">I don't really mind</option>
-      <option value="3">I prefer tests</option>
-    </select>
-  
-    <label> <h4>Do you have definite interest in certain courses?</h4></label>
-    <select id ="courses" class = "browser-default">
-      <option>Choose an Option</option>
-      <option value="1">Yes, I am very interested in certain courses</option>
-      <option value="2">I have some main interests</option>
-      <option value="3">I don't have any definitive interests</option>
-    </select>
-  
-    <label> <h4>Are you interested in learning the overarching philosopy behind your studies?</h4></label>
-    <select id ="TOK" class = "browser-default">
-      <option>Choose an Option</option>
-      <option value="1">Yes, I love learning the 'why' behind my courses</option>
-      <option value="2">I am somewhat interested</option>
-      <option value="3" id >I am more interested in the actual class.</option>
-    </select>
-  
-    <label> <h4>Where are you applying for university?</h4></label>
-    <select id ="where"class = "browser-default">
-      <option>Choose an Option</option>
-      <option value="1" >I am applying to the UK only</option>
-      <option value="2" >I am applying to the UK and North America(Canada/US)</option>
-      <option value="3" >I am applying only in North America(Canada/US)</option>
-    </select>
-  
-    <div class="questionairre-footer">
-      <a href="#!" class=" btn-flat" id="qbutton">Submit</a>
-  </div>
-  
-  </div>
-  
-   <h4 id ="result"></h4>
+    <!-- End of the login page -->
         
-    
+    <!-- Start of login modal -->
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <h4 class="center">Login</h4>
+            <hr>
+            <label for="username">Username</label>
+            <input type="email" id="username">
+            <label for="password">Password</label>
+            <input type="password" id="password">
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="loginButton">Login</a>
+        </div>
+    </div>
+    <!-- End of the login modal -->
+
+    <!-- Start of the sign up modal -->
+    <div class="modal" id="modal2"><!-- Change this -->
+        <div class="modal-content">
+            <h4 class="center">Sign Up</h4>
+            <hr>
+            <label for="newuser">Create a Username</label>
+            <input type="email" id="newuser">
+            <label for="confirmuser">Confirm Username</label>
+            <input type="email" id="confirmuser">
+            <label for="newpass">Create a Password</label>
+            <input type="password" id="newpass">
+            <label for="confirmpass">Confirm Password</label>
+            <input type="password" id="confirmpass">
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="SignUpButton">Sign Up</a>
+        </div>    
+    </div>
+    <!-- End of the sing up modal -->
+
+    <!-- Start of the landing Page -->
+    <div id="landing-page" style="display: none;">
+        <h5 id="header">
+            <!-- Later the code will insert code here to display on the page -->
+        </h5>
+    </div>
+    <!-- End of the landing page -->
+
+    <!-- Start of the quiz page -->
+    <div class="container" id="quiz-page" style="display: none;">
+        <h2 class="center">AP or IB</h2>
+        <h5>In order to estimate whether you are more suitable for AP or IB, we first need to know you as a student, please respond to the following questions.</h5>
+        <!-- Question 1 -->
+        <label>
+            <h4>Do you know what to do in college?</h4>
+        </label>
+        <select class="browser-default" id="college">
+            <option>Choose an option</option>
+            <option value="1">Yes I know what to study in college.</option>
+            <option value="2">I know what field to go into.</option>
+            <option value="3">I am still exploring my interests.</option>
+        </select>
+        <!-- Question 2 -->
+        <label>
+            <h4>Do you prefer taking tests or doing projects?</h4>
+        </label>
+        <select class="browser-default" id="tvp">
+            <option>Choose an option</option>
+            <option value="1">I prefer projects.</option>
+            <option value="2">I do not really mind.</option>
+            <option value="3">I prefer tests.</option>
+        </select>
+        <!-- Question 3 -->
+        <label>
+            <h4>Do you have definite interest in certain courses?</h4>
+        </label>
+        <select class="browser-default" id="courses">
+            <option>Choose an option</option>
+            <option value="1">Yes, I am very interested in certain courses.</option>
+            <option value="2">I have some main interests.</option>
+            <option value="3">I do not have any definitive interests.</option>
+        </select>
+        <!-- Question 4 -->
+        <label>
+            <h4>Are you interested in learning the overarching philosopy behind your studies?</h4>
+        </label>
+        <select class="browser-default" id="TOK">
+            <option>Choose an option</option>
+            <option value="1">Yes, I love learning the "why" behind my courses.</option>
+            <option value="2">I am somewhat interested.</option>
+            <option value="3">I am more interested in the actual class.</option>
+        </select>
+        <!-- Question 5 -->
+        <label>
+            <h4>Where are you applying for university?</h4>
+        </label>
+        <select class="browser-default" id="where">
+            <option>Choose an option</option>
+            <option value="1">I am applying to the UK only.</option>
+            <option value="2">I am applying to the UK and North America. (Canada/US)</option>
+            <option value="3">I am applying only in North America. (Canada/US)</option>
+        </select>
+        <div class="questionairre-footer">
+            <a href="#modal3" class=" btn-flat modal-trigger" id="qbutton">Submit</a>
+        </div>    
+    </div>
+    <!-- End of the quiz page -->
+
+    <!-- Start of the result modal for the quiz page -->
+    <div class="modal" id="modal3">
+        <div class="modal-content">
+            <h4 class="center" id="result">
+                <!-- Code is going to insert code here once you submit the quiz page on the website -->
+            </h4>
+        </div>
+    </div>
+    <!-- End of the result modal for the quiz page -->
+
+    <!-- Start of the college finder US page -->
+    <div class="container" id="collegefinderUS_page" style="display: none;">
+        <h3>College Finder US (SAT/ACT,GPA)</h3>
+        <form id="satoract">
+            <p>
+                <label>
+                    <input id = "sat" type="radio" />
+                    <span>SAT</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input id = "act" type="radio" />
+                    <span>ACT</span>
+                </label>
+            </p>
+        </form>
+        <div class = "row left-align" id ="satdisplay">
+            <!-- JavaScript is going to add code here -->
+        </div>
+        <div class = "row left-align" id ="actdisplay">  
+            <!-- JavaScript is going to add code here -->
+        </div>
+        <div>
+            <label for="gpainput">Please input your GPA score (out of 4.0)</label>
+            <input type="text" class="left-align" id="gpainput">
+        </div>
+        <div>
+            <a href="#" class="btn-flat" id="USsubmit-button" style="display: block;">Submit</a>
+        </div>
+        <div class="college-display" id="college_display">
+
+        </div>
+    </div>
+    <!-- End of the college finder US page -->
+
+    <!-- Start of the college finder UK page -->
+    <div class="container" id="collegefinderUK_page" style="display: none;">
+        <h3>CollegeFinder UK(IB)</h3>
+        <label for="ibinput">Please input your total IB score in descending order</label>
+        <input type="text" class="left-align" id="ibinput">
+        <div>
+            <label for="hlinput">Please input your HL scores (XXX...(i.e. 655)</label>
+            <input type="text" class="left-align" id="hlinput">
+        </div>
+        <div>
+            <a href="#" class="btn-flat" id="uksubmit-button" style="display: block;">Submit</a>
+        </div>
+        <div class="ukcollege-display">
+            <h3 id="ukcollegeranked">
+                <!-- JavaScript is going to add code here -->
+            </h3>
+        </div>
+    </div>
+    <!-- End of the college finder UK page -->
+
 </body>
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+<!-- The core Firebase JS Database is always required when using the realtime database and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js" ></script>
 
-<script>
-  // Activate Modal
-  document.addEventListener('DOMContentLoaded', function() {
-        var options = {}
-        var elems = document.querySelectorAll('.modal');
-        var instances = M.Modal.init(elems, options);
+<script> 
 
-    });
+    const firebaseConfig = {
+        apiKey: "AIzaSyAniFJouF3WUbWkUKkXuzrHuy6pbTKxVCI",
+        authDomain: "csiaproject-5f253.firebaseapp.com",
+        databaseURL: "https://csiaproject-5f253-default-rtdb.firebaseio.com",
+        projectId: "csiaproject-5f253",
+        storageBucket: "csiaproject-5f253.appspot.com",
+        messagingSenderId: "762567018856",
+        appId: "1:762567018856:web:d9f9bcfbd09e913de0eedd"
+    };
 
-    //Activate Select
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+
+    // Initializing all the materialize features
     document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    options = {}
-    var instances = M.FormSelect.init(elems, options);
-  });
-
-
-
-    
-     
-  
-   // User Data
-
-   var users = [
-    { "username":"basar.inan@ucc.on.ca",
-      "pword" : "Gokgok2004$"
-
-    },
-
-    { "username": "user1",
-      "pword" : 12345678910
-
-    }
-    ]
-
-
-    // Login Function
-    function login(){
-
-      document.getElementById("apvsib").style.display= "block"
-      document.getElementById("collegefinder").style.display ="block"
-      document.getElementsByClassName("login-content").style.display= "none"
-      document.getElementById("logout-button").style.display= "block"
-
-      }
-
-    // User Verification
-    var activeuser = null
-
-  document.getElementById("loginbutton").addEventListener("click", (e) => {
-  var username = document.getElementById("username").value
-  var password = document.getElementById("password").value
-  
-  for ( i = 0; i < users.length; i++){
-    if ((users[i]["username"] == username) && (users[i]["pword"] == password)){
-
-      activeUser = username
-      console.log(activeUser)
-      
-      login()
-
-    }
-  } 
-
-})
-
-   
-    // SignUp Process
-
-    document.getElementById("SignUpButton").addEventListener("click", (e) => {
-      var username = document.getElementById("newuser").value
-      var password = document.getElementById("newpass").value
-    
-      var dict= [];
-      dict.push({
-      "username": (username),
-      "pword": (password),
+        // Activate Dropdown
+        var optionsDropdown = {}
+        var elemsDropdown = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elemsDropdown, optionsDropdown);
+        // Activate Modal
+        var optionsModal = {}
+        var elemsModal = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elemsModal, optionsModal);
+        // Activate Select
+        optionsSelect = {}
+        var elemsSelect = document.querySelectorAll('select');
+        var instancesSelect = M.FormSelect.init(elemsSelect, optionsSelect);
     });
-
-    for ( i = 0; i < dict.length; i++){
-      users.push(dict[0])
-
-      console.log(users)
-      }
-
-  })
-
-     
-    
-    //LogoutFunction 
-    function logout(){
-      document.getElementById("login-page").style.display= "block"
-      document.getElementById("landing-page").style.display ="none"
-      document.getElementById("quiz-page").style.display ="none"
-      
-      
- 
-    }
-    
-    
-    // LogoutCode
-    const logout_button = document.getElementById("logout-buttona")
-    console.log(logout_button)
-    logout_button.addEventListener("click", (e) => {
-      
-      logout()
-    })
-   
-    
-    //Quiz Page function
-
-    function quiz_page(){
-
-      document.getElementById("login-page").style.display= "none"
-      document.getElementById("landing-page").style.display ="none"
-      document.getElementById("quiz-page").style.display ="block"
-
-
-    }
-    
-    // Quiz Page 
-
-    const quiz_button = document.getElementById("apvsib button")
-    quiz_button.addEventListener("click", (e) => {
-      
-      quiz_page()
-    })
-
-    //Quiz Page Algorithm 
-
-    document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    options = {}
-    var instances = M.FormSelect.init(elems, options);
-  });
-
-  
-
-   document.getElementById("qbutton").addEventListener("click", (e) => {
-    e.preventDefault()
-    var college = document.getElementById("college").value
-    var tvp = document.getElementById("tvp").value
-    var courses= document.getElementById("courses").value
-    var TOK = document.getElementById("TOK").value
-    var where= document.getElementById("where").value
-    
-    var total = 0
-    total = Number(college) + Number(tvp) + Number(courses) + Number(TOK) + Number(where)
-    
-    if (total<8){
-
-      result = document.getElementById("result").innerHTML = "YOU ARE MORE SUITED FOR THE IB PROGRAM"
-    }
-      
-    if (total>8 && total <12){
-
-      result = document.getElementById("result").innerHTML = "YOU ARE SUITED FOR BOTH PROGRAMS"
-
-    }
-
-    if(total>12){
-
-      result = result = document.getElementById("result").innerHTML = "YOU ARE SUITED FOR THE AP PROGRAM"
-    }
-
-  }
-    //College Finder Page Function
-     
-
-    //College Finder Page
 
 </script>
-
+<script src="scripts/index.js"></script>
 </html>
-
