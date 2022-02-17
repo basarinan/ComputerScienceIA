@@ -1,0 +1,168 @@
+<!-- 
+
+This quiz will be used to figure out whether students are more suited for the IB or AP  -->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP OR IB!</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div id ="landing-page" style = "display: block;">
+        <nav>
+          <div class="nav-wrapper red">
+            <a href="#" class="brand-logo center">College Finder</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+              <li><a id = "logout-button" class = "lin-content btn-flat" href="#">Logout</a></li>
+              <li><a id = "college finder button" class = "lin-content btn-flat" href= "#">Home</a></li>
+              <li><a id = "apvsib button" class = "lin-content btn-flat" href="#">AP or IB</a></li>
+              
+            </ul>
+          </div>
+        </nav>
+    
+        <h5 id="header"></h5>
+    
+    
+    
+        </div>
+
+
+    <h2 class = "center">AP or IB</h2>
+
+
+    <h5>In order to estimate whether you are more suitable for AP or IB, we first need to know you as a student, please respond to the following questions.</h5>
+
+  <div>  
+  
+    <label><h4>Do you know what to do in college?</h4></label>
+  <select id = "college" class="browser-default">
+    <option>Choose an Option</option>
+    <option value="1">Yes I know what to study in college</option>
+    <option value="2">I know what field to go into</option>
+    <option value="3">I am still exploring my interests</option>
+  </select>
+
+  <label><h4>Do you prefer taking tests or doing projects?</h4></label>
+  <select id ="tvp" class="browser-default">
+    <option>Choose an Option</option>
+    <option value="1">I prefer projects</option>
+    <option value="2">I don't really mind</option>
+    <option value="3">I prefer tests</option>
+  </select>
+
+  <label> <h4>Do you have definite interest in certain courses?</h4></label>
+  <select id ="courses" class = "browser-default">
+    <option>Choose an Option</option>
+    <option value="1">Yes, I am very interested in certain courses</option>
+    <option value="2">I have some main interests</option>
+    <option value="3">I don't have any definitive interests</option>
+  </select>
+
+  <label> <h4>Are you interested in learning the overarching philosopy behind your studies?</h4></label>
+  <select id ="TOK" class = "browser-default">
+    <option>Choose an Option</option>
+    <option value="1">Yes, I love learning the 'why' behind my courses</option>
+    <option value="2">I am somewhat interested</option>
+    <option value="3" id >I am more interested in the actual class.</option>
+  </select>
+
+  <label> <h4>Where are you applying for university?</h4></label>
+  <select id ="where"class = "browser-default">
+    <option>Choose an Option</option>
+    <option value="1" >I am applying to the UK only</option>
+    <option value="2" >I am applying to the UK and North America(Canada/US)</option>
+    <option value="3" >I am applying only in North America(Canada/US)</option>
+  </select>
+
+  <div class="questionairre-footer">
+    <a href="#!" class=" btn-flat" id="qbutton">Submit</a>
+</div>
+
+</div>
+
+ <h4 id ="result"></h4>
+
+
+
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    options = {}
+    var instances = M.FormSelect.init(elems, options);
+  });
+
+  
+
+    
+        
+
+
+
+
+
+
+  document.getElementById("qbutton").addEventListener("click", (e) => {
+    e.preventDefault()
+    var college = document.getElementById("college").value
+    var tvp = document.getElementById("tvp").value
+    var courses= document.getElementById("courses").value
+    var TOK = document.getElementById("TOK").value
+    var where= document.getElementById("where").value
+    
+    var total = 0
+    total = Number(college) + Number(tvp) + Number(courses) + Number(TOK) + Number(where)
+    
+    if (total<8){
+
+      result = document.getElementById("result").innerHTML = "YOU ARE MORE SUITED FOR THE IB PROGRAM"
+    }
+      
+    if (total>8 && total <12){
+
+      result = document.getElementById("result").innerHTML = "YOU ARE SUITED FOR BOTH PROGRAMS"
+
+    }
+
+    if(total>12){
+
+      result = result = document.getElementById("result").innerHTML = "YOU ARE SUITED FOR THE AP PROGRAM"
+    }
+
+    
+
+    
+    
+
+  
+ 
+  })
+
+  
+  
+  
+
+
+
+
+</script>
+</html>
