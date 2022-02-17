@@ -157,69 +157,6 @@ function logout(){
 })
 
 
-
-  //InputBox()
-
-  function InputBoxSAT(){
-
-        inputBox = ` <div id = "inputbox" class = container>
-          
-                    <label for="satinput">Please enter your SAT Score</label>
-                    <input type="text" name="input" id="satinput"> 
-
-
-                    `;
-
-        
-      const ib = document.getElementById("satdisplay")
-
-      newDiv = document.createElement("div")
-      newDiv.innerHTML = inputBox;
-      ib.appendChild(newDiv)
-
-  }
-
-
-  //SAT Input Box FUNCTION
-
-    document.getElementById("sat").addEventListener("click", (e) => {
-    document.getElementById("act").disabled = true
-  
-    InputBoxSAT()
-                   
-    })
-
-//ACTInputBox
-  function InputBoxACT(){
-
-  inputBox = ` <div id = "inputbox1" class = container>
-
-          <label for="actinput">Please enter your ACT Score</label>
-          <input type="text" name="input" id="actinput"> 
-
-
-          `;
-
-
-  const ib = document.getElementById("actdisplay")
-
-  newDiv = document.createElement("div")
-  newDiv.innerHTML = inputBox;
-  ib.appendChild(newDiv)
-
-}
-
-
-//ACT FUNCTION
-
-  document.getElementById("act").addEventListener("click", (e) => {
-  document.getElementById("sat").disabled = true
-
-  InputBoxACT()
-
-})
-
-
   
 
 
